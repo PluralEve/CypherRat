@@ -5,8 +5,8 @@ A remote access trojan controllable via Discord
 
 ## FEATURES
 
-| Feature | Windows | Linux |
-|---------|---------|-------|
+| Feature 
+|---------
 | Reverse shell 
 | Grab device info 
 | Screenshot 
