@@ -21,4 +21,7 @@ pip install pycryptodome
 rem Install imageio
 pip install imageio
 
+rem Install Pyinstaller 
+pip install pyinstaller
+
 pause
