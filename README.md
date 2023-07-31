@@ -1,4 +1,5 @@
 # Cypher Rat
+# PREFIX : "!"
 
 A remote access trojan controllable via Discord
 
